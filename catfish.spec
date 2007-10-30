@@ -12,7 +12,7 @@ Requires:	pyxdg
 Requires:	dbus-python
 Requires:	mlocate
 Requires:	find
-Requires:	strigi
+Requires:	beagle
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
