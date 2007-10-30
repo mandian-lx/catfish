@@ -7,6 +7,7 @@ License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
 Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
 BuildRequires:	gettext
+%py_requires -d
 Requires:	pygtk2-libglade
 Requires:	pyxdg
 Requires:	dbus-python
