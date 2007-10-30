@@ -2,7 +2,7 @@ Summary:	A handy file search tool
 Name:		catfish
 Version:	0.3
 Release:	%mkrel 1
-Group:		Applications/File
+Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
 Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
