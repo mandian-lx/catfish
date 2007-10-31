@@ -1,7 +1,7 @@
 Summary:	A handy file search tool
 Name:		catfish
 Version:	0.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
@@ -12,7 +12,7 @@ Requires:	pygtk2.0-libglade
 Requires:	pyxdg
 Requires:	dbus-python
 Requires:	mlocate
-Requires:	find
+Requires:	findutils
 Requires:	beagle
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
