@@ -18,7 +18,7 @@ BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-A handy file searching tool for linux.Basically it is a 
+A handy file searching tool for linux. Basically it is a 
 frontend for different search engines (daemons) which 
 provides a unified interface. The interface is intentionally 
 lightweight and simple, using only GTK+ 2. You can configure 
