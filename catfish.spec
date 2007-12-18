@@ -6,6 +6,7 @@ Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
 Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-0.3-fix-separator-position.patch
 BuildRequires:	gettext
 %py_requires -d
 Requires:	pygtk2.0-libglade
@@ -25,6 +26,7 @@ it to your needs by using several command line options.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 sed -i.misc \
