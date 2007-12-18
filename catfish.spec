@@ -1,20 +1,21 @@
 Summary:	A handy file search tool
 Name:		catfish
 Version:	0.3
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
 Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.3-fix-separator-position.patch
 BuildRequires:	gettext
+BuildRequires:	desktop-file-install
 %py_requires -d
 Requires:	pygtk2.0-libglade
 Requires:	pyxdg
 Requires:	dbus-python
 Requires:	mlocate
 Requires:	findutils
-Requires:	beagle
+Suggests:	beagle
 BuildArch:	noarch
 
 %description
@@ -49,6 +50,10 @@ sed -i.engine -e 's|Nautilus|nautilus|' %{name}.py
 rm -rf %{buildroot}
 
 %makeinstall_std
+
+desktop-file-install \
+	--remove-category="Utility" \
+	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 rm -rf %{buildroot}%{_datadir}/doc/
 
