@@ -8,7 +8,7 @@ URL:		http://software.twotoasts.de/?page=%{name}
 Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.3-fix-separator-position.patch
 BuildRequires:	gettext
-BuildRequires:	desktop-file-install
+BuildRequires:	desktop-file-utils
 %py_requires -d
 Requires:	pygtk2.0-libglade
 Requires:	pyxdg
