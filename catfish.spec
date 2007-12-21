@@ -17,6 +17,7 @@ Requires:	mlocate
 Requires:	findutils
 Suggests:	beagle
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 A handy file searching tool for linux. Basically it is a 
