@@ -1,7 +1,7 @@
 Summary:	A handy file search tool
 Name:		catfish
 Version:	0.3
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
@@ -15,7 +15,6 @@ Requires:	pyxdg
 Requires:	dbus-python
 Requires:	mlocate
 Requires:	findutils
-Suggests:	beagle
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -42,7 +41,7 @@ sed -i.misc \
 
 sed -i.byte -e 's|pyc|py|' %{name}.in
 
-sed -i.engine -e 's|Nautilus|nautilus|' %{name}.py
+sed -i.engine -e 's|Nautilus|Thunar|' %{name}.py
 
 # (tpg) do not use macro here
 ./configure --prefix=%{_prefix}
