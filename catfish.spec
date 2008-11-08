@@ -71,5 +71,4 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/
-%{_datadir}/pixmaps/%{name}.svg
 %{_iconsdir}/hicolor/scalable/apps/*.svg
