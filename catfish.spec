@@ -1,7 +1,7 @@
 Summary:	A handy file search tool
 Name:		catfish
 Version:	0.3.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
@@ -53,6 +53,7 @@ rm -rf %{buildroot}
 
 desktop-file-install \
 	--remove-category="Utility" \
+	--add-category='System' \
 	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 rm -rf %{buildroot}%{_datadir}/doc/
