@@ -6,7 +6,9 @@ Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
 Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
+Source1:	%{name}.desktop
 Patch0:		%{name}-0.3-fix-separator-position.patch
+Patch1:		%{name}.desktop.patch
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 %py_requires -d
@@ -28,6 +30,7 @@ it to your needs by using several command line options.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p0
 
 %build
 sed -i.misc \
