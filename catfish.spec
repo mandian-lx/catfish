@@ -46,7 +46,7 @@ sed -i.byte -e 's|pyc|py|' %{name}.in
 
 sed -i.engine -e 's|Nautilus|Thunar|' %{name}.py
 
-# (tpg) do not use macro here
+# --libdir= option doesn't work here.
 ./configure --prefix=%{_prefix}
 
 %install
@@ -61,7 +61,7 @@ desktop-file-install \
 
 rm -rf %{buildroot}%{_datadir}/doc/
 
-ln -sf ../pixmaps/%{name}.svg %{buildroot}%{_datadir}/%{name}/
+ln -sf ../icons/hicolor/scalable/apps/%{name}.svg %{buildroot}%{_datadir}/%{name}/
 ln -sf ../locale/ %{buildroot}%{_datadir}/%{name}/
 
 %find_lang %{name}
@@ -75,4 +75,4 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/
-%{_iconsdir}/hicolor/scalable/apps/*.svg
+%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
