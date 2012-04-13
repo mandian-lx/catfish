@@ -1,7 +1,7 @@
 Summary:	A handy file search tool
 Name:		catfish
 Version:	0.3.2
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		File tools
 License:	GPLv2+
 URL:		http://software.twotoasts.de/?page=%{name}
@@ -21,10 +21,10 @@ BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-A handy file searching tool for linux. Basically it is a 
-frontend for different search engines (daemons) which 
-provides a unified interface. The interface is intentionally 
-lightweight and simple, using only GTK+ 2. You can configure 
+A handy file searching tool for linux. Basically it is a
+frontend for different search engines (daemons) which
+provides a unified interface. The interface is intentionally
+lightweight and simple, using only GTK+ 2. You can configure
 it to your needs by using several command line options.
 
 %prep
