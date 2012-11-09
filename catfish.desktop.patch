@@ -1,0 +1,10 @@
+--- catfish.desktop.old	2008-10-24 04:30:46.000000000 +0400
++++ catfish.desktop	2011-08-22 23:52:35.000000000 +0400
+@@ -8,6 +8,7 @@
+ Comment[es]=Buscador de archivos
+ Comment[fi]=Etsi tiedostoja
+ Comment[fr]=Recherche de fichiers
++Comment[ru]=Поиск файлов
+ Categories=GTK;Utility;Filesystem;
+ Exec=catfish
+ Icon=catfish
