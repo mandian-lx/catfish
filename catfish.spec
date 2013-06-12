@@ -13,7 +13,7 @@ BuildRequires:	desktop-file-utils
 %py_requires -d
 Requires:	pygtk2.0-libglade
 Requires:	python-pyxdg
-Requires:	dbus-python
+Requires:	python-dbus
 Requires:	mlocate
 Requires:	findutils
 
