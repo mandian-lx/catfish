@@ -1,24 +1,21 @@
 Summary:	A handy file search tool
 Name:		catfish
-Version:	0.3.2
-Release:	7
+Version:	0.6.4
+Release:	1
 Group:		File tools
 License:	GPLv2+
-Url:		http://software.twotoasts.de/?page=%{name}
-Source0:	http://software.twotoasts.de/media/%{name}/%{name}-%{version}.tar.bz2
-Source1:	%{name}.desktop
-Patch0:		%{name}-0.3-fix-separator-position.patch
-Patch1:		%{name}.desktop.patch
+Url:		http://twotoasts.de/index.php/catfish
+Source0:	https://launchpad.net/catfish-search/0.6/%{version}/+download/catfish-%{version}.tar.bz2
 BuildArch:	noarch
-
 BuildRequires:	gettext
+BuildRequires:	intltool
 BuildRequires:	desktop-file-utils
 %py_requires -d
-Requires:	python-dbus
-Requires:	findutils
-Requires:	mlocate
 Requires:	pygtk2.0-libglade
-Requires:	pyxdg
+Requires:	python-pyxdg
+Requires:	dbus-python
+Requires:	mlocate
+Requires:	findutils
 
 %description
 A handy file searching tool for linux. Basically it is a
@@ -29,8 +26,6 @@ it to your needs by using several command line options.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p0
 
 %build
 sed -i.misc \
@@ -40,11 +35,7 @@ sed -i.misc \
 	-e 's|pyc|py|' \
 	-e 's|^\([ \t]*\)ln |\1: ln |' \
 	-e 's|cp -rf|cp -prf|' \
-	Makefile.in
-
-sed -i.byte -e 's|pyc|py|' %{name}.in
-
-sed -i.engine -e 's|Nautilus|Thunar|' %{name}.py
+	Makefile.in.in
 
 # --libdir= option doesn't work here.
 ./configure --prefix=%{_prefix}
@@ -52,15 +43,15 @@ sed -i.engine -e 's|Nautilus|Thunar|' %{name}.py
 %install
 %makeinstall_std
 
+
 desktop-file-install \
 	--remove-category="Utility" \
 	--add-category='System' \
-	--dir %{buildroot}%{_datadir}/applications \
-	%{buildroot}%{_datadir}/applications/*
+	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 rm -rf %{buildroot}%{_datadir}/doc/
 
-ln -sf ../icons/hicolor/scalable/apps/%{name}.svg %{buildroot}%{_datadir}/%{name}/
+ln -sf ../pixmaps/%{name}.svg %{buildroot}%{_datadir}/%{name}/
 ln -sf ../locale/ %{buildroot}%{_datadir}/%{name}/
 
 %find_lang %{name}
@@ -71,4 +62,3 @@ ln -sf ../locale/ %{buildroot}%{_datadir}/%{name}/
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
-
