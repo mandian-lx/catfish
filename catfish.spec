@@ -10,7 +10,7 @@ BuildArch:	noarch
 BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:	desktop-file-utils
-%py_requires -d
+BuildRequires:	python-devel
 Requires:	pygtk2.0-libglade
 Requires:	python-pyxdg
 Requires:	python-dbus
