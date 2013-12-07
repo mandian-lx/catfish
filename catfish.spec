@@ -1,7 +1,7 @@
 Summary:	A handy file search tool
 Name:		catfish
 Version:	0.6.4
-Release:	2
+Release:	3
 Group:		File tools
 License:	GPLv2+
 Url:		http://twotoasts.de/index.php/catfish
