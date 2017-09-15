@@ -1,2 +1,4 @@
+removed_sources:
+  catfish-0.6.4.tar.bz2: 238e5aa7787f4cc38b4c7c2d5b0a00608319ef1a
 sources:
-  "catfish-0.6.4.tar.bz2": 238e5aa7787f4cc38b4c7c2d5b0a00608319ef1a
+  catfish-1.4.2.tar.bz2: 5ab492189fec91e428b16cb45b38bc8f0ff8d773
