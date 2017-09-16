@@ -44,13 +44,21 @@ provides a unified interface. The interface is intentionally
 lightweight and simple, using only GTK+ 3. You can configure
 it to your needs by using several command line options.
 
-%files -f %{name}.lang -f FILELIST
+%files -f %{name}.lang
 %doc AUTHORS ChangeLog README
+%{_bindir}/%{name}
+%dir %{py_puresitedir}/%{name}/
+%{py_puresitedir}/%{name}/*
+%dir %{py_puresitedir}/%{name}_lib/
+%{py_puresitedir}/%{name}_lib/*
 %{py_puresitedir}/%{name}-%{version}-*.egg-info
-%dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/appdata
-%dir %{_datadir}/%{name}/media
-%dir %{_datadir}/%{name}/ui
+%dir %{_datadir}/%{name}/
+%dir %{_datadir}/%{name}/media/
+%{_datadir}/%{name}/media/%{name}.svg
+%dir %{_datadir}/%{name}/ui/
+%{_datadir}/%{name}/ui/*
+%{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 %{_mandir}/man1/%{name}.1*
 
@@ -64,13 +72,7 @@ it to your needs by using several command line options.
 %{__python3} setup.py build
 
 %install
-%{__python3} setup.py install --root=%{buildroot} --record=FILELIST
-
-# remove *.pyc files, README, man and locales from FILELIST
-sed -i -e '/\\*.pyc$/d' FILELIST
-sed -i -e '/\\*README$/d' FILELIST
-sed -i -e '/\\*%{name}.1/d' FILELIST
-sed -i -e '/\\*.mo/d' FILELIST
+%{__python3} setup.py install --root=%{buildroot}
 
 # fix .desktop
 desktop-file-edit \
@@ -81,6 +83,9 @@ desktop-file-edit \
 # fix icon path
 install -dm 0755 %{buildroot}%{_datadir}/%{name}/media/
 ln -sf ../../icons/hicolor/scalable/apps/%{name}.svg %{buildroot}%{_datadir}/%{name}/media/
+
+# remove unuseful data
+rm -fr %{buildroot}%{_datadir}/%{name}/appdata/
 
 # locales
 %find_lang %{name} --all-name
